@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #322341; }
+	</style>
+
+{% endblock %}
+{% block content %}
+<title>Embeds</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=container>
+    <div class="row">
+        <div class="col-3"><h3><a href="{{ url_for('embeds') }}">Resources</a></h3></div>
+        <div class="col-3"><div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://www.investopedia.com/articles/basics/06/invest1000.asp" data-iframely-url="//cdn.iframe.ly/BeRknsS"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script></div>
+        </div>
+    <div class="row">
+        <div class="col-3"><h3><a href="{{ url_for('embeds') }}">News Sources</a></h3></div>
+        <div class="col-3"><div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://finance.yahoo.com/news/" data-iframely-url="//cdn.iframe.ly/9umv5Ij"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script></div>
+        <div class="col-3"></div><div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pWVXlnQVAB/sections/CAQiXENCQVNQd29JTDIwdk1EbHpNV1lTQW1WdUdnSlZVeUlQQ0FRYUN3b0pMMjB2TURsNU5IQnRLaG9LR0FvVVRVRlNTMFZVVTE5VFJVTlVTVTlPWDA1QlRVVWdBU2dBKioIAComCAoiIENCQVNFZ29JTDIwdk1EbHpNV1lTQW1WdUdnSlZVeWdBUAFQAQ" data-iframely-url="//cdn.iframe.ly/RJ7L2Xn"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+</div></div>
+
+{% endblock content %}

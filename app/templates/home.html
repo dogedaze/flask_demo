@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div style="background-color:#9b7498 !important" class="jumbotron">
+    <h1> <img src="{{url_for('static', filename='boy1.jpg')}}"alt="user1" width="100" height="100" class="d-inline-block align-text-top"> Hi, {{ user.username }}!</h1> 
+    <p>Your portfolio : </p>    </div>
+    {% for post in posts %}
+<div class='row'>
+    <div class='col'>
+    <p>Here are what your friends are saying: </p>
+    <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+</div>
+       </div>
+    {% endfor %}
+{% endblock %}

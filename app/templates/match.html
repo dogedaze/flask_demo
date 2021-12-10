@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>Simple tables</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<div class=container>
+    <div class="row">
+        <div class="col-6 col-md-4"><h1><img src="{{url_for('static', filename='boy1.jpg')}}"alt="user1" width="100" height="100" class="d-inline-block align-text-top" ></h1>
+            <h1> Vick Fury </h1><p>5-2-0 | 2nd of 12 | Victor</p></div> 
+        <div class="col-6 col-md-4">
+   <h1 class="text-center">VS</h1>
+                <p class="text-center">
+                  Week 8
+                </p>
+      </div>
+      <div class="col-6 col-md-4"><h1><img src="{{url_for('static', filename='girl1.jpg')}}"alt="user2" width="100" height="100" class="d-inline-block align-text-top"></h1>
+        <h1> Pen Pineapple AAPL pen</h1><p>4-3-0 | 4th of 12 | Susan</p></div> 
+    </div>
+      <div class="row">
+      <div class="col-md-auto">
+  <h1>Matchup</h1>
+  {% for table in tables %}
+    {{ table|safe }}
+  {% endfor %}
+</div></div>
+</div>
+{% endblock %}

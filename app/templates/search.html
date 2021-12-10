@@ -1,0 +1,50 @@
+% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #8da9c2; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+stocks
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Discover more stocks</h1>
+
+      <p class="lead">Search here for ETFs. </p>
+
+      {{ wtf.quick_form(form) }}
+
+      <p class="pt-5"><strong>{{ message }}</strong></p>
+
+    </div>
+
+{% from "_formhelpers.html" import render_field %}
+<form method="post">
+<dl>
+  {{ render_field(form.select) }}
+  <p>
+  {{ render_field(form.search) }}
+</p></dl>
+<p><input type="submit" value="Search">
+</p></form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+<doctype html="">
+
+
