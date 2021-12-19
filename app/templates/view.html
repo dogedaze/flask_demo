@@ -7,12 +7,13 @@
 <div class=container>
     <div class="row">
         <div class="col-sm-4"><h1><img src="{{url_for('static', filename='boy1.jpg')}}"alt="user1" width="200" height="200" class="d-inline-block align-text-top"></h1></div>
-        <div class="col-sm-8"><h1> Vick Fury </h1><p>5-2-0 | 2nd of 12 | Victor</p></div>
+        <div class="col-sm-8"><h1>Never Gonna Let You Down</h1><p>5-2-0 | 5th of 6 | Randy Le</p></div>
       </div>
       <div class="row"><div class="col">  <h1>Stock Summary</h1></div></div>
       <div style="width: 1400 px;overflow: scroll;">
       <div class="row">
       <div class="col-md-auto">
+</div>
   {% for table in tables %}
     {{ table|safe }}
   {% endfor %}

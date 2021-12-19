@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<title>Simple tables</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=container>
+    <div class="row">
+        <div class="col-sm-4"><h1><img src="{{url_for('static', filename='girl1.jpg')}}"alt="user1" width="200" height="200" class="d-inline-block align-text-top"></h1></div>
+        <div class="col-sm-8"><h1> Never Gonna Give You Up</h1><p>4-3-0 | 3rd of 6 | Sandy He</p></div>
+      </div>
+      <div class="row"><div class="col">  <h1>Stock Summary</h1></div></div>
+      <div style="width: 1400 px;overflow: scroll;">
+      <div class="row">
+      <div class="col-md-auto">
+</div>
+  {% for table in tables %}
+    {{ table|safe }}
+  {% endfor %}
+</div></div></div></div>
+{% endblock %}
+

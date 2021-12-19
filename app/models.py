@@ -3,22 +3,27 @@ from app import db
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    u_id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(100), index=True, unique=True)
+    fantasy_name = db.Column(db.String(100), index=True, unique=True)
+    def __repr__(self):
+        return '<User {}>'.format(self.user_name)
+
+
+class trades_clean(db.Model):
+    u_id = db.Column(db.Integer, primary_key=True)
+    ticker1 = db.Column(db.String(140))
+    trade_date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    amount = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<ticker1 {}>'.format(self.ticker1)
 
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+class final_summary(db.Model):
+    user_name = db.Column(db.String(140),primary_key=True)
+    fantasy_name = db.Column(db.String(140))
+    final_change = db.Column(db.Integer, index=True)
+    fb = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<Post {}>'.format(self.body)
-
+        return '<final_change {}>'.format(self.final_change)

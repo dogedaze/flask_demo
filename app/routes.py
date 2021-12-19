@@ -13,7 +13,6 @@ import yfinance as yf
 import random
 
 
-
 @app.route('/home')
 def home():
     user = {'username': 'Viktor'}
@@ -41,14 +40,27 @@ def login():
 
 @app.route("/view", methods=("POST", "GET"))
 def html_table():
-    df = pd.read_csv('app/TEST_USER_DATA.csv')
+    df = pd.read_csv('df_balance_user_1.csv')
     return render_template('view.html',  tables=[df.to_html(classes='table table-striped table-bordered table-hover table-sm', header="true")])
 
+@app.route("/view/1", methods=("POST", "GET"))
+def html_table_user1():
+    df = pd.read_csv('df_trades_user_1.csv')
+    return render_template('view.html',  tables=[df.to_html(classes='table table-striped table-bordered table-hover table-sm', header="true")])
+@app.route("/view/2", methods=("POST", "GET"))
+def html_table_user2():
+    df = pd.read_csv('df_trades_user_2.csv')
+    return render_template('view2.html',  tables=[df.to_html(classes='table table-striped table-bordered table-hover table-sm', header="true")])
+
+@app.route('/view/<name>')
+def user(name):
+    return render_template('view_U.html', name=name)
 
 @app.route("/LEADER", methods=("POST", "GET"))
 def html_table1():
-    df = pd.read_csv('app/LEADER.csv',index_col=False) 
+    df = pd.read_csv('df_final_portfolio_amount.csv',index_col=False) 
     return render_template('view.html',  tables=[df.to_html(classes='table table-striped table-bordered table-hover table-sm', header="true")])
+
 
 @app.route("/matchup", methods=("POST", "GET"))
 def html_table2():
